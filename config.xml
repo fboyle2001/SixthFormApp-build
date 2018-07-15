@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.mcasix.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>MCA6</name>
+    <description>
+        App for Mildenhall College Academy Sixth Form
+    </description>
+    <author email="boyle.finlay@mca.attrust.org.uk" href="http://mildenhall.attrust.org.uk/">
+        PhoneGap Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
+    <engine name="ios" spec="^4.5.4" />
+    <engine name="browser" spec="^5.0.3" />
+    <engine name="android" spec="^7.0.0" />
+    <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
+</widget>
