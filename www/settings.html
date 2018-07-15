@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="./javascript/jquery-3.2.1.min.js"></script>
+		<script src="./javascript/js.cookie.js"></script>
+		<script src="./javascript/query.js"></script>
+		<script src="cordova.js"></script>
+		<link href="./css/styles.css" rel="stylesheet" type="text/css">
+		<script>
+			//caching is unnecessary on this page
+			function loadPage() {
+				query("/accounts/details/", {}, function (data) {
+					var type = data["content"]["authLevel"] == 1 ? "Admin" : "Student";
+					var time = data["content"]["timeRemaining"];
+					var seconds = time % 60;
+					var displayTime = ((time - seconds) / 60)	+ " minutes " + seconds + " seconds";
+
+					$("#time_left").text(displayTime);
+					$("#account_type").text(type);
+
+					if(type == "Admin") {
+						$("#account_type").after('<a href="javascript:refreshCache()"><p>Refresh Cache</p></a>');
+					}
+				}, function (data) {
+					sendAlert("An unexpected error occurred.", "Error");
+				});
+
+				$("#change_pwd").click(function (e) {
+					e.preventDefault();
+					changePassword();
+				});
+			}
+
+			function logout() {
+				Cookies.remove("auth");
+				Cookies.remove("base");
+				Cookies.remove("resource_base");
+				window.location = "index.html";
+			}
+
+			function changePassword() {
+				var password = $("#new_pwd").val();
+				var check = $("#new_pwd_check").val();
+
+				if(password !== check) {
+					sendAlert("Your passwords do not match.");
+					return;
+				}
+
+				var standard = doesPasswordMeetStandard(password);
+
+        if(standard !== true) {
+          sendAlert(standard);
+          return;
+        }
+
+				query("/accounts/change/", {"password": password}, function (data) {
+					sendAlert("Successfully changed your password.");
+				}, function(data) {
+					sendAlert("An unexpected error occurred.", "Error");
+				});
+			}
+
+			function refreshCache() {
+				if(typeof(Storage) !== "undefined") {
+					localStorage.clear();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="menu">
+			<nav>
+				<ul>
+					<a href="home.html"><li>Home</li></a>
+					<a href="documents.html"><li>Documents</li></a>
+					<a href="links.html"><li>Links</li></a>
+					<li class="current">Settings</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="content">
+			<h1 class="header">Settings</h1>
+			<br>
+			<h2>Account</h2>
+			<p>Session Time Remaining: <span id="time_left"></span></p>
+			<p>Account Type: <span id="account_type"></span></p>
+			<a id="refresh_cache"></a>
+			<a href="javascript:logout()"><p>Click to Logout</p></a>
+			<h3>Change Password</h3>
+			<form>
+				<table>
+					<tr><td>New Password</td><td><input type="password" id="new_pwd"></td></tr>
+					<tr><td>Confirm Password</td><td><input type="password" id="new_pwd_check"></td></tr>
+					<tr><td colspan="2"><button id="change_pwd">Change Password</button></td></tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>
