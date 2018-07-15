@@ -1,14 +1,12 @@
-# A Blank PhoneGap App
+# Build
 
-## Usage
+1. Install Node.js
+2. Navigate to the directory containing this repo
+3. Run `npm install -g cordova`
+4. Run `npm install phonegap`
+5. Run `cordova platform add ios` and/or `cordova platform add android`
+6. Run `cordova build ios` and/or `cordova build ios` (requires XCode/Android Studio)
 
-### PhoneGap CLI
+# iOS
 
-    $ phonegap create my-app --template blank
-
-### Desktop
-
-In your browser, open the file:
-
-    /www/index.html
-
+If it succeeds then load XCode, open the directory /platforms/ios/ and build to your device with a free provisioning profile.
