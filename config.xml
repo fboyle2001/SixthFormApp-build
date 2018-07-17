@@ -9,11 +9,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
-    <engine name="ios" spec="^4.5.4" />
-    <engine name="browser" spec="^5.0.3" />
-    <engine name="android" spec="^7.0.0" />
-    <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
     <platform name="android">
         <icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
@@ -62,4 +57,9 @@
         <splash height="960" platform="ios" src="res/screens/ios/Default@2x~iphone.png" width="640" />
         <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
     </platform>
+    <engine name="ios" spec="^4.5.4" />
+    <engine name="browser" spec="^5.0.3" />
+    <engine name="android" spec="^7.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~3.0.0" />
+    <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
 </widget>
