@@ -2,9 +2,11 @@ window.loggedIn = null;
 
 function login(username, password, base, error, success) {
   var queryUrl = base + "/accounts/login/";
+  console.log(queryUrl);
   var postData = "username=" + username + "&password=" + password;
 
   $.post(queryUrl, postData, function(data, textStatus) {
+    console.log("Data: " + data);
     var status = data["status"]["code"];
 
     if(status != 200) {
@@ -31,12 +33,13 @@ function performLogin(username, password, base, onerror, start) {
     Cookies.set("must_reset", data["content"]["reset"]);
   });
 
-  waitForLoginCompletion(250, 8, 0, start); //max wait 2 seconds
+  $("#message").text("Logging in, please wait...");
+  waitForLoginCompletion(250, 16, 0, start); //max wait 4 seconds
 }
 
 function waitForLoginCompletion(timePerPause, maxPauses, count, callback) {
   if(count >= maxPauses) {
-    console.log("here");
+    $("#message").text("Server timed out. Please try again.");
     return;
   }
 
