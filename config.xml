@@ -63,7 +63,7 @@
     <plugin name="cordova-plugin-dialogs" spec="2.0.1" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-targetSdkVersion" value="26" />
-    <preference name="android-versionCode" value="14000" />
+    <preference name="android-versionCode" value="16000" />
     <engine name="browser" spec="^5.0.3" />
     <engine name="android" spec="^7.0.0" />
     <engine name="ios" spec="^4.5.5" />
