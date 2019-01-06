@@ -4,8 +4,8 @@
     <description>
         App for Mildenhall College Academy Sixth Form
     </description>
-    <author email="boyle.finlay@mca.attrust.org.uk" href="http://mildenhall.attrust.org.uk/">
-        PhoneGap Team
+    <author email="ict@mca.attrust.org.uk" href="http://mildenhall.attrust.org.uk/">
+        MCA6 Students
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -64,7 +64,7 @@
     <plugin name="cordova-plugin-dialogs" spec="2.0.1" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-targetSdkVersion" value="26" />
-    <preference name="android-versionCode" value="16000" />
+    <preference name="android-versionCode" value="16100" />
     <engine name="browser" spec="^5.0.3" />
     <engine name="android" spec="^7.0.0" />
     <engine name="ios" spec="^4.5.5" />
