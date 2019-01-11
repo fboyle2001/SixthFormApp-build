@@ -64,10 +64,10 @@
     <plugin name="cordova-plugin-dialogs" spec="2.0.1" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-targetSdkVersion" value="26" />
-    <preference name="android-versionCode" value="16200" />
+    <preference name="android-versionCode" value="16300" />
     <preference name="phonegap-version" value="cli-8.1.1" />
     <engine name="ios" spec="~4.5.5" />
     <engine name="android" spec="~7.1.4" />
     <engine name="browser" spec="~5.0.4" />
-    <plugin name="onesignal-cordova-plugin" spec="2.4.6" />
+    <plugin name="onesignal-cordova-plugin" spec="~2.4.6" />
 </widget>

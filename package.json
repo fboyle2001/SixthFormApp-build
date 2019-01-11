@@ -23,7 +23,7 @@
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-whitelist": "1",
     "cordova-support-google-services": "^1.1.0",
-    "onesignal-cordova-plugin": "2.4.6",
+    "onesignal-cordova-plugin": "^2.4.6",
     "phonegap": "^8.2.2",
     "phonegap-plugin-multidex": "^1.0.0"
   }
