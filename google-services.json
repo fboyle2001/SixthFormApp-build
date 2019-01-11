@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1078065604665",
+    "firebase_url": "https://com-mcasix-app.firebaseio.com",
+    "project_id": "com-mcasix-app",
+    "storage_bucket": "com-mcasix-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078065604665:android:6df9febbedc18595",
+        "android_client_info": {
+          "package_name": "com.mcasix.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078065604665-9h2n0utc3ecg5tc7if0g07dgdfe48s93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtDIgsNwf-hFhg2t0PpdAr47KyWjODvrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
