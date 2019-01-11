@@ -166,6 +166,7 @@ var push = {
     if(typeof PushNotification === 'undefined') {
       console.log("Push does not exist");
       console.log("yea");
+      sendAlert("NO PN");
       return;
     }
 
@@ -185,9 +186,9 @@ var push = {
     localStorage.removeItem("registrationId");
 
     push.on('registration', function(data) {
-      alert("At registration stage");
+      sendAlert("At registration stage");
       var old = localStorage.getItem("registrationId");
-      alert(old);
+      sendAlert(old);
 
       if(old !== data.registrationId) {
         // New ID
@@ -195,9 +196,9 @@ var push = {
         // Send it to the server
 
         query("/push/register/", {deviceId: data.registrationId}, function(data) {
-          alert("Registered");
+          sendAlert("Registered");
         }, function(data) {
-          alert("Unable to register");
+          sendAlert("Unable to register");
         });
       }
     });
