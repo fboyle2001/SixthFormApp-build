@@ -164,6 +164,7 @@ function cacheContent(key, content) {
 var push = {
   setup: function() {
     if(typeof PushNotification === 'undefined') {
+      console.log("Push does not exist");
       console.log("yea");
       return;
     }
@@ -181,8 +182,12 @@ var push = {
       "windows": {}
     });
 
+    localStorage.removeItem("registrationId");
+
     push.on('registration', function(data) {
+      alert("At registration stage");
       var old = localStorage.getItem("registrationId");
+      alert(old);
 
       if(old !== data.registrationId) {
         // New ID
