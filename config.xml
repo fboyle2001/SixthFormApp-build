@@ -30,7 +30,6 @@
         <splash density="port-xhdpi" src="res/screens/android/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="res/screens/android/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
-        <resource-file src="google-services.json" target="google-services.json" />
     </platform>
     <platform name="ios">
         <icon height="1024" platform="ios" src="res/icons/ios/icon.png" width="1024" />
@@ -59,7 +58,6 @@
         <splash height="1024" platform="ios" src="res/screens/ios/Default-Portrait~ipad.png" width="768" />
         <splash height="960" platform="ios" src="res/screens/ios/Default@2x~iphone.png" width="640" />
         <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
-        <resource-file src="GoogleService-Info.plist" />
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
