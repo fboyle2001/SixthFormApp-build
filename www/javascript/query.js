@@ -161,46 +161,11 @@ function cacheContent(key, content) {
   }
 }
 
-var push = {
-  setup: function() {
-    var push = PushNotification.init({
-      "android": {
-        "senderID": "1078065604665"
-      },
-      "browser": {},
-      "ios": {
-        "sound": true,
-        "vibration": true,
-        "badge": true
-      },
-      "windows": {}
-    });
-
-    push.on('registration', function(data) {
-      var old = localStorage.getItem("registrationId");
-
-      if(old !== data.registrationId) {
-        // New ID
-        localStorage.setItem("registrationId", data.registrationId);
-        // Send it to the server
-        query("/push/register/", {deviceId: data.registrationId}, function(data) {}, function(data) {});
-      }
-    });
-
-    push.on('notification', function(data) {
-      navigator.notification.alert(
-        data.message,
-        null,
-        data.title,
-        'OK'
-      );
-    });
-  }
-}
-
 // When the device has loaded this is run
 function onDeviceReady() {
-  push.setup();
+  window.plugins.OneSignal.startInit('a9171e05-26dd-49d2-9a57-c4ab6c423dcc').handleNotificationOpened(function(data) {
+    sendAlert(data);
+  }).endInit();
 
   $(document).ready(function () {
     verifyUser(function () {
