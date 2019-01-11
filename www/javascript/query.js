@@ -163,6 +163,11 @@ function cacheContent(key, content) {
 
 var push = {
   setup: function() {
+    if(typeof PushNotification === 'undefined') {
+      console.log("yea");
+      return;
+    }
+
     var push = PushNotification.init({
       "android": {
         "senderID": "1078065604665"
@@ -195,7 +200,7 @@ var push = {
     push.on('notification', function(data) {
       navigator.notification.alert(
         data.message,
-        nullm
+        null,
         data.title,
         'OK'
       );
