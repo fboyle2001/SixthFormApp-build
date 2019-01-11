@@ -163,13 +163,6 @@ function cacheContent(key, content) {
 
 var push = {
   setup: function() {
-    if(typeof PushNotification === 'undefined') {
-      console.log("Push does not exist");
-      console.log("yea");
-      sendAlert("NO PN");
-      return;
-    }
-
     var push = PushNotification.init({
       "android": {
         "senderID": "1078065604665"
