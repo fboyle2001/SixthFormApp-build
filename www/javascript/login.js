@@ -12,8 +12,8 @@ $(document).ready(function() {
     e.preventDefault();
     $(this).prop("disabled", true);
     //var address = "http://localhost/sixthserver/api";
-    //var address = "http://10.0.0.17/sixthserver/api";
-    var address = "https://mcasixthfrom.000webhostapp.com/sixthserver/api";
+    var address = "http://10.0.0.17/sixthserver/api";
+    //var address = "https://mcasixthfrom.000webhostapp.com/sixthserver/api";
 
     // Start the login process
     performLogin($("#username").val(), $("#password").val(), address, function(code, msg) {
