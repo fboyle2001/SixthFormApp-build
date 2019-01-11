@@ -176,23 +176,14 @@ var push = {
       "windows": {}
     });
 
-    localStorage.removeItem("registrationId");
-
     push.on('registration', function(data) {
-      sendAlert("At registration stage");
       var old = localStorage.getItem("registrationId");
-      sendAlert(old);
 
       if(old !== data.registrationId) {
         // New ID
         localStorage.setItem("registrationId", data.registrationId);
         // Send it to the server
-
-        query("/push/register/", {deviceId: data.registrationId}, function(data) {
-          sendAlert("Registered");
-        }, function(data) {
-          sendAlert("Unable to register");
-        });
+        query("/push/register/", {deviceId: data.registrationId}, function(data) {}, function(data) {});
       }
     });
 
