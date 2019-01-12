@@ -12,7 +12,8 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-dialogs": {},
       "cordova-plugin-whitelist": {},
-      "onesignal-cordova-plugin": {}
+      "onesignal-cordova-plugin": {},
+      "cordova-plugin-statusbar": {}
     }
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "cordova-ios": "^4.5.5",
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "1",
     "cordova-support-google-services": "^1.1.0",
     "onesignal-cordova-plugin": "^2.4.6",
