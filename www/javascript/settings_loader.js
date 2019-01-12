@@ -13,6 +13,10 @@ var __themes = {
     icons: true,
     images: {
       login_logo: "light_mca.png"
+    },
+    statusbar: {
+      background: "#FFFFFF",
+      foreground: "#000000"
     }
   },
   dark: {
@@ -22,6 +26,10 @@ var __themes = {
     icons: true,
     images: {
       login_logo: "dark_mca.png"
+    },
+    statusbar: {
+      background: "#303030",
+      foreground: "#F8F8FF"
     }
   },
   sidebar_light: {
@@ -31,6 +39,10 @@ var __themes = {
     icons: true,
     images: {
       login_logo: "light_mca.png"
+    },
+    statusbar: {
+      background: "#FFFFFF",
+      foreground: "#000000"
     }
   },
   sidebar_dark: {
@@ -40,6 +52,10 @@ var __themes = {
     icons: true,
     images: {
       login_logo: "dark_mca.png"
+    },
+    statusbar: {
+      background: "#303030",
+      foreground: "#F8F8FF"
     }
   }
 };
@@ -131,6 +147,17 @@ function produceViewportElement() {
 function loadElements() {
   var theme = getUserTheme();
   var images = theme.images;
+
+  // Set status bar colour
+  StatusBar.overlaysWebView(true);
+  StatusBar.backgroundColorByHexString(theme.statusbar.background);
+  StatusBar.show();
+
+  if(theme.dark == true) {
+    StatusBar.styleBlackOpaque();
+  } else {
+    StatusBar.styleLightContent();
+  }
 
   for(var key in images) {
     // Element exists on this page
