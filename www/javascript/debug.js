@@ -4,10 +4,27 @@ function loadPage() {
   // Display the information
   $("#debug_info").text(JSON.stringify(info, null, 2));
 
-  $("#a").text("Conn exist: " + (typeof navigator.connection == "undefined")  + " Conn Type: " + JSON.stringify(navigator.connection));
-  $("#b").text("WS exist: " + (typeof window.screen == "undefined")  + " WS Type: " + JSON.stringify(window.screen));
-  $("#c").text("WD exist: " + (typeof window.device == "undefined")  + " WD Type: " + JSON.stringify(window.device));
-  $("#d").text("WPD exist: " + (typeof window.plugins.device == "undefined")  + " WD Type: " + JSON.stringify(window.plugins.device));
+  if(typeof navigator === undefined) {
+    $("#a").text("Nav is undefined");
+  } else {
+    $("#a").text("Nav is defined");
+  }
+
+  if(typeof window === undefined) {
+    $("#b").text("Window is undefined");
+  } else {
+    $("#b").text("Window is defined");
+  }
+
+  var conn = window.screen || {exists: "none"};
+  conn = JSON.stringify(conn);
+
+  $("#c").text("Conn: " + conn);
+
+  var devi = window.device || {exists: "none"};
+  devi = JSON.stringify(devi);
+
+  $("#d").text("Devi: " + devi);
 
   // Hide or show the information
   $("#debug_toggle").click(function (e) {
@@ -23,11 +40,7 @@ function loadPage() {
   // Copy the debug information
   $("#debug_copy").click(function (e) {
     e.preventDefault();
-    cordova.plugins.clipboard.copy(JSON.stringify(info), function(s) {
-      alert("s: " + s);
-    }, function(s) {
-      alert("f: " + s);
-    });
+    cordova.plugins.clipboard.copy(JSON.stringify(info), null, null);
   });
 }
 
@@ -44,19 +57,6 @@ function getDebugInfo() {
 
   data.cache = cache;
   data.cookies = Cookies.get();
-
-  data.device = JSON.stringify(window.device);
-
-  data.screen = JSON.stringify({
-    width: window.screen.width,
-    height: window.screen.height,
-    devicePixelRatio: window.screen.devicePixelRatio
-  });
-
-  data.network = JSON.stringify({
-    type: navigator.connection.type,
-    effectiveType: navigator.connection.effectiveType
-  });
 
   return data;
 }
