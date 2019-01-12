@@ -161,12 +161,26 @@ function cacheContent(key, content) {
   }
 }
 
+function registerPush() {
+  if(getUserSettings().pushId !== "") {
+    // Already been registered
+    return;
+  }
+
+
+  window.plugins.OneSignal.getUserID(function (id) {
+    query("/push/register/", {pushId: id}, function (data) {
+      var currentSettings = getUserSettings();
+      currentSettings.pushId = id;
+      Cookies.set("settings", JSON.stringify(currentSettings), {expires: 1460});
+    }, function (data) {
+      sendAlert("Unable to register for push notifications");
+    });
+  });
+}
+
 // When the device has loaded this is run
 function onDeviceReady() {
-  window.plugins.OneSignal.startInit('a9171e05-26dd-49d2-9a57-c4ab6c423dcc').handleNotificationOpened(function(data) {
-    // Do nothing yet
-  }).endInit();
-
   $(document).ready(function () {
     verifyUser(function () {
       loadPage();
@@ -174,6 +188,12 @@ function onDeviceReady() {
       window.location = "index.html";
     });
   });
+
+  window.plugins.OneSignal.startInit('a9171e05-26dd-49d2-9a57-c4ab6c423dcc').handleNotificationOpened(function(data) {
+    // Do nothing yet
+  }).endInit();
+
+  registerPush();
 }
 
 // When the app has been reloaded this is run
