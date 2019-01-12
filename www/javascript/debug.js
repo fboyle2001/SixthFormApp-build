@@ -4,6 +4,11 @@ function loadPage() {
   // Display the information
   $("#debug_info").text(JSON.stringify(info, null, 2));
 
+  $("#a").text("Conn exist: " + (typeof navigator.connection == "undefined")  + " Conn Type: " + JSON.stringify(navigator.connection));
+  $("#b").text("WS exist: " + (typeof window.screen == "undefined")  + " WS Type: " + JSON.stringify(window.screen));
+  $("#c").text("WD exist: " + (typeof window.device == "undefined")  + " WD Type: " + JSON.stringify(window.device));
+  $("#d").text("WPD exist: " + (typeof window.plugins.device == "undefined")  + " WD Type: " + JSON.stringify(window.plugins.device));
+
   // Hide or show the information
   $("#debug_toggle").click(function (e) {
     e.preventDefault();
