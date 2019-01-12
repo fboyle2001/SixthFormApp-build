@@ -15,8 +15,7 @@ var __themes = {
       login_logo: "light_mca.png"
     },
     statusbar: {
-      background: "#FFFFFF",
-      foreground: "#000000"
+      background: "#FFFFFF"
     }
   },
   dark: {
@@ -28,8 +27,7 @@ var __themes = {
       login_logo: "dark_mca.png"
     },
     statusbar: {
-      background: "#303030",
-      foreground: "#F8F8FF"
+      background: "#303030"
     }
   },
   sidebar_light: {
@@ -41,8 +39,7 @@ var __themes = {
       login_logo: "light_mca.png"
     },
     statusbar: {
-      background: "#FFFFFF",
-      foreground: "#000000"
+      background: "#FFFFFF"
     }
   },
   sidebar_dark: {
@@ -54,8 +51,7 @@ var __themes = {
       login_logo: "dark_mca.png"
     },
     statusbar: {
-      background: "#303030",
-      foreground: "#F8F8FF"
+      background: "#303030"
     }
   }
 };
@@ -149,14 +145,19 @@ function loadElements() {
   var images = theme.images;
 
   // Set status bar colour
-  StatusBar.overlaysWebView(false);
-  StatusBar.backgroundColorByHexString(theme.statusbar.background);
-  StatusBar.show();
+  // Only do it once to stop flickering
+  if(Cookies.get("status_bar_changed") !== true) {
+    StatusBar.overlaysWebView(false);
+    StatusBar.backgroundColorByHexString(theme.statusbar.background);
+    StatusBar.show();
 
-  if(theme.dark == true) {
-    StatusBar.styleBlackOpaque();
-  } else {
-    StatusBar.styleLightContent();
+    if(theme.dark == true) {
+      StatusBar.styleBlackOpaque();
+    } else {
+      StatusBar.styleDefault();
+    }
+
+    Cookies.set("status_bar_changed", true);
   }
 
   for(var key in images) {
