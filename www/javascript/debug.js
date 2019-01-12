@@ -18,7 +18,11 @@ function loadPage() {
   // Copy the debug information
   $("#debug_copy").click(function (e) {
     e.preventDefault();
-    cordova.plugins.clipboard.copy(JSON.stringify(info));
+    cordova.plugins.clipboard.copy(JSON.stringify(info), function(s) {
+      alert("s: " + s);
+    }, function(s) {
+      alert("f: " + s);
+    });
   });
 }
 
