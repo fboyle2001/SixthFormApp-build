@@ -38,7 +38,8 @@ function getDebugInfo() {
 
   data.screen = {
     width: window.screen.width,
-    height: window.screen.height
+    height: window.screen.height,
+    devicePixelRatio: window.screen.devicePixelRatio
   };
 
   data.device = window.device;
