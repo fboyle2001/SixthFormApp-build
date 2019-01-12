@@ -41,6 +41,7 @@ function getDebugInfo() {
   data.cookies = Cookies.get();
 
   data.screen = {
+    y: "yes",
     width: window.screen.width,
     height: window.screen.height,
     devicePixelRatio: window.screen.devicePixelRatio
@@ -51,6 +52,7 @@ function getDebugInfo() {
   */
 
   data.network = {
+    y: "yes",
     type: navigator.connection.type,
     effectiveType: navigator.connection.effectiveType
   }
