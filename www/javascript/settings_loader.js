@@ -150,18 +150,13 @@ function loadElements() {
   var images = theme.images;
 
   // Set status bar colour
-  // Only do it once to stop flickering
-  if(Cookies.get("status_bar_changed") !== "true") {
-    StatusBar.overlaysWebView(false);
-    StatusBar.backgroundColorByHexString(theme.statusbar.background);
+  StatusBar.overlaysWebView(false);
+  StatusBar.backgroundColorByHexString(theme.statusbar.background);
 
-    if(theme.dark == true) {
-      StatusBar.styleBlackOpaque();
-    } else {
-      StatusBar.styleDefault();
-    }
-
-    Cookies.set("status_bar_changed", true);
+  if(theme.dark == true) {
+    StatusBar.styleBlackOpaque();
+  } else {
+    StatusBar.styleDefault();
   }
 
   StatusBar.show();
@@ -223,5 +218,4 @@ $("head").append(produceViewportElement());
 
 document.addEventListener("deviceready", function() {
   loadElements();
-  registerPush();
 }, false);

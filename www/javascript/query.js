@@ -163,13 +163,15 @@ function cacheContent(key, content) {
 
 function registerPush() {
   if(getUserSettings().pushId !== "") {
+    sendAlert("Already registered: " + getUserSettings().pushId);
     // Already been registered
     return;
   }
 
-
   window.plugins.OneSignal.getUserID(function (id) {
+    sendAlert("Sent: " + id);
     query("/push/register/", {pushId: id}, function (data) {
+      sendAlert(data);
       var currentSettings = getUserSettings();
       currentSettings.pushId = id;
       Cookies.set("settings", JSON.stringify(currentSettings), {expires: 1460});
