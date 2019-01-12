@@ -214,6 +214,6 @@ function loadElements() {
 $("head").append(produceStyleElement());
 $("head").append(produceViewportElement());
 
-$(document).ready(function() {
+document.addEventListener("deviceready", function() {
   loadElements();
-});
+}, false);
