@@ -40,19 +40,21 @@ function getDebugInfo() {
   data.cache = cache;
   data.cookies = Cookies.get();
 
+  data.con = navigator.connection.type == true ? navigator.connection.type : "not";
+
   data.screen = {
-    y: "yes",
-    width: window.screen.width,
-    height: window.screen.height,
-    devicePixelRatio: window.screen.devicePixelRatio
+    width: screen.width,
+    height: screen.height,
+    devicePixelRatio: screen.devicePixelRatio
   };
+
+  data.d = device == true ? device : "not";
 
   /*
   data.device = window.device;
   */
 
   data.network = {
-    y: "yes",
     type: navigator.connection.type,
     effectiveType: navigator.connection.effectiveType
   }
