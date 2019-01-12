@@ -149,7 +149,7 @@ function loadElements() {
   var images = theme.images;
 
   // Set status bar colour
-  StatusBar.overlaysWebView(true);
+  StatusBar.overlaysWebView(false);
   StatusBar.backgroundColorByHexString(theme.statusbar.background);
   StatusBar.show();
 
