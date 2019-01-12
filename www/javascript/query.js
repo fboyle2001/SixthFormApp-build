@@ -169,14 +169,12 @@ function registerPush() {
   }
 
   window.plugins.OneSignal.getIds(function (ids) {
-    sendAlert("Sent: " + ids.userId);
     query("/push/register/", {pushId: ids.userId}, function (data) {
-      sendAlert(data);
       var currentSettings = getUserSettings();
       currentSettings.pushId = ids.userId;
       Cookies.set("settings", JSON.stringify(currentSettings), {expires: 1460});
     }, function (data) {
-      sendAlert("Unable to register for push notifications");
+      
     });
   });
 }
