@@ -40,20 +40,20 @@ function getDebugInfo() {
   data.cache = cache;
   data.cookies = Cookies.get();
 
-  /*
   data.screen = {
     width: window.screen.width,
     height: window.screen.height,
     devicePixelRatio: window.screen.devicePixelRatio
   };
 
+  /*
   data.device = window.device;
+  */
 
   data.network = {
     type: navigator.connection.type,
     effectiveType: navigator.connection.effectiveType
   }
-  */
 
   return data;
 }
