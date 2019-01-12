@@ -40,20 +40,18 @@ function getDebugInfo() {
   data.cache = cache;
   data.cookies = Cookies.get();
 
-  data.screen = {
-    width: screen.width,
-    height: screen.height,
-    devicePixelRatio: screen.devicePixelRatio
-  };
+  data.device = JSON.stringify(window.device);
 
-  /*
-  data.device = window.device;
-  */
+  data.screen = JSON.stringify({
+    width: window.screen.width,
+    height: window.screen.height,
+    devicePixelRatio: window.screen.devicePixelRatio
+  });
 
-  data.network = {
+  data.network = JSON.stringify({
     type: navigator.connection.type,
     effectiveType: navigator.connection.effectiveType
-  }
+  });
 
   return data;
 }
