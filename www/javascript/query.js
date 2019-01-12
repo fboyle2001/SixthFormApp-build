@@ -162,7 +162,7 @@ function cacheContent(key, content) {
 }
 
 function registerPush() {
-  if(getUserSettings().pushId !== "") {
+  if(getUserSettings().pushId !== "" && getUserSettings().pushId !== undefined && getUserSettings().pushId !== "undefined") {
     sendAlert("Already registered: " + getUserSettings().pushId);
     // Already been registered
     return;
