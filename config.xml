@@ -69,8 +69,8 @@
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="26" />
-    <!-- X.Y.Z ==> XYZ version code (since v0.7.0) -->
-    <preference name="android-versionCode" value="73" />
+    <!-- X.Y.Z ==> 1XYZ0 version code (since v0.7.0) -->
+    <preference name="android-versionCode" value="17300" />
     <preference name="phonegap-version" value="cli-8.1.1" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="false" />
