@@ -162,18 +162,22 @@ function cacheContent(key, content) {
 }
 
 function registerPush() {
-  if(getUserSettings().pushId !== "" && getUserSettings().pushId !== undefined && getUserSettings().pushId !== "undefined") {
+  if(getUserSettings().pushId !== "" && getUserSettings().pushId != false && getUserSettings().pushId !== "undefined") {
+    alert("Already registered");
     // Already been registered
     return;
   }
 
   window.plugins.OneSignal.getIds(function (ids) {
+    alert("One Signal");
+
     query("/push/register/", {pushId: ids.userId}, function (data) {
       var currentSettings = getUserSettings();
       currentSettings.pushId = ids.userId;
       Cookies.set("settings", JSON.stringify(currentSettings), {expires: 1460});
+      alert("Registered: " + currentSettings.pushId);
     }, function (data) {
-
+      alert("Unable to register");
     });
   });
 }
