@@ -18,8 +18,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
-pre #debug_info {
-	word-wrap: break-word;
+pre#debug_info {
+	white-space: pre-wrap;
 }
 
 .centred {
@@ -145,5 +145,5 @@ table.data-table > tbody > tr > td > a {
 #google_calendar {
 	border-width: 0;
 	width: 95%;
-	height: 600px;
+	height: 95%;
 }

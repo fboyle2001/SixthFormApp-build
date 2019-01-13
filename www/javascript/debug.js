@@ -4,12 +4,6 @@ function loadPage() {
   // Display the information
   $("#debug_info").text(JSON.stringify(info, null, 2));
 
-  $("#d").text("Devi: " + JSON.stringify(screen));
-
-  $("#e").text("S: " + window.innerWidth + " b " + window.innerHeight);
-
-  var screen
-
   // Hide or show the information
   $("#debug_toggle").click(function (e) {
     e.preventDefault();
@@ -24,7 +18,12 @@ function loadPage() {
   // Copy the debug information
   $("#debug_copy").click(function (e) {
     e.preventDefault();
-    cordova.plugins.clipboard.copy(JSON.stringify(info), null, null);
+    
+    cordova.plugins.clipboard.copy(JSON.stringify(info), function(s) {
+      sendAlert("Copied");
+    }, function(s) {
+      sendAlert("Unable to copy")
+    });
   });
 }
 
