@@ -4,33 +4,7 @@ function loadPage() {
   // Display the information
   $("#debug_info").text(JSON.stringify(info, null, 2));
 
-  if(typeof navigator === undefined) {
-    $("#a").text("Nav is undefined");
-  } else {
-    $("#a").text("Nav is defined");
-  }
-
-  if(typeof window === undefined) {
-    $("#b").text("Window is undefined");
-  } else {
-    $("#b").text("Window is defined");
-  }
-  
-  if(typeof screen === undefined) {
-    $("#f").text("Window is undefined");
-  } else {
-    $("#f").text("Window is defined");
-  }
-
-  var conn = navigator.connection || {exists: "none"};
-  conn = JSON.stringify(conn);
-
-  $("#c").text("Conn: " + conn);
-
-  var devi = window.device || {exists: "none"};
-  devi = JSON.stringify(devi);
-
-  $("#d").text("Devi: " + devi);
+  $("#d").text("Devi: " + JSON.stringify(screen));
 
   $("#e").text("S: " + window.innerWidth + " b " + window.innerHeight);
 
@@ -77,6 +51,11 @@ function getDebugInfo() {
 
   data.connection = {
     type: navigator.connection.type
+  };
+
+  data.screen = {
+    innerWidth: window.innerWidth,
+    innerHeight: window.innerHeight
   };
 
   return data;
