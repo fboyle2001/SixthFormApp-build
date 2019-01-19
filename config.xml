@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.mcasix.app" version="0.7.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" android-versionCode="17300">
+<widget id="com.mcasix.app" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" android-versionCode="20100">
     <name>MCA6</name>
     <description>
         App for Mildenhall College Academy Sixth Form
     </description>
     <author email="ict@mca.attrust.org.uk" href="http://mildenhall.attrust.org.uk/">
-        MCA6 Students
+        MCA6
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -70,7 +70,7 @@
     <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="26" />
     <!-- X.Y.Z ==> 1XYZ0 version code (since v0.7.0) -->
-    <preference name="android-versionCode" value="17300" />
+    <preference name="android-versionCode" value="20100" />
     <preference name="phonegap-version" value="cli-8.1.1" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="false" />
